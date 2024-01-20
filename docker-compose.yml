@@ -17,9 +17,9 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - ${API_PORT}:8080
+      - ${API_PORT}:3000
     environment:
-      - DATABASE_URL=${DATABASE_URL_CONTAINER}
+      - DATABASE_URL=${DATABASE_URL}
     depends_on:
       - postgres
     entrypoint:
@@ -29,4 +29,7 @@ services:
         "--",
         "/app/start.sh"
       ]
-    command: [ "/app/main" ]
+    command: [ "node", "/app/dist/main.js" ]
+
+volumes:
+  nestjs-auth-pg:

@@ -4,8 +4,8 @@
 set -e
 
 echo "run db migration"
-npm prisma generate
-npm prisma migrate deploy
+npx prisma generate
+npx prisma migrate deploy
 
 echo "start the app"
 # run all commands pass to this script

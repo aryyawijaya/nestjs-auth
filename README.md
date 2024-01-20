@@ -35,14 +35,13 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
-$ npm run start
+$ make compose-up
+```
 
-# watch mode
-$ npm run start:dev
+## Log app
 
-# production mode
-$ npm run start:prod
+```bash
+$ make logs-api
 ```
 
 ## Test
@@ -50,9 +49,6 @@ $ npm run start:prod
 ```bash
 # unit tests
 $ npm run test
-
-# e2e tests
-$ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
