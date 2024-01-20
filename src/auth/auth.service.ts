@@ -1,13 +1,14 @@
 import {
   BadRequestException,
+  HttpStatus,
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
 import { SignInDto } from './dto/sign_in.dto';
 import { AuthProvider } from './auth.provider';
-import { UserRepository } from 'src/db/repositories/user.repository';
-import { Validation } from 'src/helper/validation';
-import { Wrapper } from 'src/helper/wrapper';
+import { UserRepository } from '../db/repositories/user.repository';
+import { Validation } from '../helper/validation';
+import { Wrapper } from '../helper/wrapper';
 import { SignUpDto } from './dto/sign_up.dto';
 import { TokenPayload } from './interfaces/token_payload';
 
@@ -42,7 +43,7 @@ export class AuthService {
       role: currUser.role,
     });
 
-    return this.wrapper.response(200, accessToken);
+    return this.wrapper.response(HttpStatus.OK, accessToken);
   }
 
   async signUp(signUpDto: SignUpDto, tokenPayload: TokenPayload) {
@@ -66,6 +67,6 @@ export class AuthService {
 
     delete createdUser.password;
 
-    return this.wrapper.response(201, createdUser);
+    return this.wrapper.response(HttpStatus.CREATED, createdUser);
   }
 }
