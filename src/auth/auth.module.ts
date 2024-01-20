@@ -4,8 +4,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthProvider } from './auth.provider';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
-import { DbModule } from 'src/db/db.module';
-import { HelperModule } from 'src/helper/helper.module';
+import { DbModule } from '../db/db.module';
+import { HelperModule } from '../helper/helper.module';
 
 @Module({
   imports: [

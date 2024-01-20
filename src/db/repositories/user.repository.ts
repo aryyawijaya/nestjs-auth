@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { DbService } from '../db.service';
 import { CreateUser } from '../interfaces/user';
+import { User } from '@prisma/client';
 
 @Injectable()
 export class UserRepository extends DbService {
-  async findByUsername(username: string) {
+  async findByUsername(username: string): Promise<User> {
     return await this.prisma.user.findFirst({
       where: { username: username },
     });
